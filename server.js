@@ -90,6 +90,8 @@ fastify.post('/webhook', async (request, reply) => {
           })
 
           return {im: "in"}
+        }else{
+          console.log({Error: "Invalid secret."})
         }        
         return {status: "ok"}
     } catch (e) {
