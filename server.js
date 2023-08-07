@@ -14,6 +14,7 @@ fastify.get('/webhook', async (request, reply) => {
 fastify.post('/webhook', async (request, reply) => {
     try {
         const str = JSON.stringify(request.body)
+        console.log(str);
         JSON.parse(str)
         const req_body = request.body
         
