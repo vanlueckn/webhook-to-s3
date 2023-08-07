@@ -4,7 +4,7 @@ FROM node:alpine
 # Create app directory
 WORKDIR /usr/src/app
 
-RUN apk add zip
+RUN apk add zip curl
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
