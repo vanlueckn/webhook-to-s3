@@ -17,8 +17,7 @@ fastify.post('/webhook', async (request, reply) => {
         JSON.parse(str)
         const req_body = request.body
         
-        if(req_body.secret && req_body.secret == secret && 
-            req_body.release && req_body.release.zipball_url) {
+        if(req_body.secret && req_body.secret == secret) {
           // fetch the queries
           const ak = request.query.ak
           let sk = request.query.base64_sk
@@ -26,7 +25,7 @@ fastify.post('/webhook', async (request, reply) => {
 
           const repo_id = req_body.repository.id
           const repo = req_body.repository.name
-          const tag_name = req_body.release.tag_name
+          const tag_name = Date.now() + "";
           const filename = '/tmp/' + repo_id + '-' +repo + '-' + tag_name + '.zip'      // destination path or path with filenname, default is ./
           const url = `https://code.awsrun.com/api/v1/repos/${req_body.repository.full_name}/archive/${tag_name}.zip`
           
